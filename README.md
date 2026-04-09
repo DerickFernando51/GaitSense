@@ -3,11 +3,17 @@
 
 - This wearable interfaces with an Fs-ins-16z insole pressure sensor array comprising of 16 FSR (Force Sensing Resistor) sensors.
 
-- It is powered by a 120 mAh LiPo battery with USB-C charging.
+- It is powered by a 120 mAh LiPo battery with USB-C charging. The sensor readings are captured at 50 Hz via the MCU’s ADC.
 
-- The sensor readings are captured at 50 Hz via the MCU’s ADC.
+- The left wearable records the left foot sensor data and transmits it to the right wearable via ESP-NOW.
+  
+- The right wearable records the right foot data, combines it with the left foot data, and sends both to the mobile application over BLE.
 
-- The mobile app visualizes the force distribution across the foot using a heatmap, while the plot displays the total force summed over all 16 sensors per foot. This enables analysis of pressure distribution during gait cycles.
+- A hardware timer running at 50 Hz triggers an interrupt to drive sensor sampling.
+
+- The mobile app visualizes the force distribution across the foot using a heatmap, while the plot displays the total force summed over all 16 sensors per foot.
+
+- This system enables real-time analysis of pressure distribution in each foot during gait cycles.
 
   
 <br>
