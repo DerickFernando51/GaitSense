@@ -1,30 +1,33 @@
 <p align="center">
-<img width="700" height="764" alt="image" src="https://github.com/user-attachments/assets/fbc0543d-5bf9-4dd8-8f39-3dfd9694cd70" />
+<img width="1512" height="750" alt="image" src="https://github.com/user-attachments/assets/11913fb6-6b77-46c6-b666-1f65c0c83e0d" />
+
+
 <br>
-  <em>Fig. 3: Device Components and Enclosure Features </em>
+  <em>Fig. 1: Circuit Diagram</em>
 </p><br>
+
 
 
 <p align="center">
 <img width="900" height="281" alt="image" src="https://github.com/user-attachments/assets/8cf80a89-a078-4014-9371-c363290d6877" />
 <br>
-  <em>Fig. 4: Fig. 4: Top and Bottom Views of 4-Layer PCB </em>
+  <em> Fig. 2: Top and Bottom Views of 4-Layer PCB </em>
 </p><br>
 
 <p align="center">
 <img width="900" height="521" alt="image" src="https://github.com/user-attachments/assets/4e353265-96f8-4eea-b802-aa1139f960bc" />
 
 <br>
-  <em>Fig. 5: Enclosure Design Features </em>
+  <em>Fig. 3: Enclosure Design Features </em>
 </p><br>
+
 
 <p align="center">
-<img width="1512" height="750" alt="image" src="https://github.com/user-attachments/assets/11913fb6-6b77-46c6-b666-1f65c0c83e0d" />
-
-
+<img width="700" height="764" alt="image" src="https://github.com/user-attachments/assets/fbc0543d-5bf9-4dd8-8f39-3dfd9694cd70" />
 <br>
-  <em>Fig. 6: Circuit Diagram</em>
+  <em>Fig. 4: Device Components and Features </em>
 </p><br>
+
 
 
 <p align="center">
@@ -32,7 +35,7 @@
 
 
 <br>
-  <em>Fig. 7: Heatmap UI</em>
+  <em>Fig. 5: Heatmap Interface in Mobile App </em>
 </p><br>
 
 
@@ -41,7 +44,7 @@
 
 
 <br>
-  <em>Fig. 8: Plots UI</em>
+  <em>Fig. 6: Total Force Per Foot Plot </em>
 </p><br>
 
 
