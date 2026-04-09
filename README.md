@@ -1,3 +1,17 @@
+# GaitSense
+(ESP32-C3, C/C++, ADC, BLE, ESP-NOW, AWS API Gatewat, Lambda, Firebase, TypeScript, React)
+
+- This wearable interfaces with an Fs-ins-16z insole pressure sensor array comprising of 16 FSR (Force Sensing Resistor) sensors.
+
+- It is powered by a 120 mAh LiPo battery with USB-C charging.
+
+- The sensor readings are captured at 50 Hz via the MCU’s ADC.
+
+- The mobile app visualizes the force distribution across the foot using a heatmap, while the plot displays the total force summed over all 16 sensors per foot. This enables analysis of pressure distribution during gait cycles.
+
+  
+<br>
+<br>
 <p align="center">
 <img width="1512" height="750" alt="image" src="https://github.com/user-attachments/assets/11913fb6-6b77-46c6-b666-1f65c0c83e0d" />
 
