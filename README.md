@@ -1,5 +1,5 @@
 # GaitSense
-(ESP32-C3, C/C++, ADC, BLE, ESP-NOW, AWS API Gatewat, Lambda, Firebase, TypeScript, React)
+(ESP32-C3, C/C++, ADC, BLE, ESP-NOW, AWS API Gateway, Lambda, Firebase, TypeScript, React)
 
 - This wearable interfaces with an Fs-ins-16z insole pressure sensor array comprising of 16 FSR (Force Sensing Resistor) sensors.
 
