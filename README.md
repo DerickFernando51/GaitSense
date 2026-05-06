@@ -19,7 +19,7 @@
 <br>
 <br>
 <p align="center">
-<img width="1512" height="750" alt="image" src="https://github.com/user-attachments/assets/11913fb6-6b77-46c6-b666-1f65c0c83e0d" />
+<img width="1512"   alt="image" src="https://github.com/user-attachments/assets/11913fb6-6b77-46c6-b666-1f65c0c83e0d" />
 
 
 <br>
@@ -35,7 +35,7 @@
 </p><br>
 
 <p align="center">
-<img width="900" height="521" alt="image" src="https://github.com/user-attachments/assets/4e353265-96f8-4eea-b802-aa1139f960bc" />
+<img width="900" alt="image" src="https://github.com/user-attachments/assets/4e353265-96f8-4eea-b802-aa1139f960bc" />
 
 <br>
   <em>Fig. 3: Enclosure Design Features </em>
@@ -51,7 +51,7 @@
 
 
 <p align="center">
-<img width="350" height="900" alt="image" src="https://github.com/user-attachments/assets/2e6e940f-9788-48ef-b19f-4f6b325f626e" />
+<img width="350"   alt="image" src="https://github.com/user-attachments/assets/2e6e940f-9788-48ef-b19f-4f6b325f626e" />
 
 
 <br>
@@ -60,7 +60,7 @@
 
 
 <p align="center">
-<img width="350" height="900" alt="image" src="https://github.com/user-attachments/assets/00de37b5-00ff-444a-9b5f-292db98a213c" />
+<img width="350" alt="image" src="https://github.com/user-attachments/assets/00de37b5-00ff-444a-9b5f-292db98a213c" />
 
 
 <br>
