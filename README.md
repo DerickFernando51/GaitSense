@@ -49,7 +49,7 @@
 
 
 <p align="center">
-<img width="700" height="764" alt="image" src="https://github.com/user-attachments/assets/fbc0543d-5bf9-4dd8-8f39-3dfd9694cd70" />
+<img width="700"   alt="image" src="https://github.com/user-attachments/assets/fbc0543d-5bf9-4dd8-8f39-3dfd9694cd70" />
 <br>
   <em>Fig. 5: Device Components and Features </em>
 </p><br>
