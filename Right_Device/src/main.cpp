@@ -3,6 +3,7 @@
 #include "config.h"
 #include "frame.h"
 
+#include "sensors/PressureSensor.h"
 #include "mux.h"
 #include "sampler.h"
 
@@ -25,6 +26,8 @@ Mux pressureMux(
     MUX_SIG
 );
 
+PressureSensor pressureSensor(pressureMux);
+
 
 void setup()
 {
@@ -35,7 +38,8 @@ void setup()
 
     /* Hardware and communication initialization */
     pressureMux.init();
-    sampler_init(pressureMux);
+    pressureSensor.init();
+    sampler_init(pressureSensor);
     espnow_init();
     ble_init();
 

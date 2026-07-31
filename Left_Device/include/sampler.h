@@ -1,10 +1,11 @@
 #pragma once
 
 #include "frame.h"
-#include "mux.h"
+#include "sensors/ISensor.h"
 
 
-void sampler_init(Mux &mux);
+void sampler_init(ISensor &sensor);
+
 
 void sample_left_frame(
     frame_t* frame,

@@ -2,12 +2,12 @@
 #include "config.h"
 
 
-static Mux* muxPtr = nullptr;
+static ISensor* sensorPtr = nullptr;
 
 
-void sampler_init(Mux &mux)
+void sampler_init(ISensor &sensor)
 {
-    muxPtr = &mux;
+    sensorPtr = &sensor;
 }
 
 
@@ -22,8 +22,6 @@ void sample_right_frame(
 
     for(uint8_t i = 0; i < NUM_SAMPLES; i++)
     {
-        muxPtr->setChannel(i);
-
-        frame->samples[i] = muxPtr->read();
+        frame->samples[i] = sensorPtr->read(i);
     }
 }

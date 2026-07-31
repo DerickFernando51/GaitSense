@@ -1,6 +1,7 @@
 #include "rtos_tasks.h"
 
 #include "queues.h"
+#include "sensors/ISensor.h"
 #include "sampler.h"
 #include "espnow_comm.h"
 #include "control.h"
