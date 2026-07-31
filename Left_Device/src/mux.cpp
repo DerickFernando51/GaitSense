@@ -1,27 +1,47 @@
-#include <Arduino.h>
 #include "mux.h"
-#include "config.h"
 
-void mux_init() {
 
-    pinMode(MUX_S0, OUTPUT);
-    pinMode(MUX_S1, OUTPUT);
-    pinMode(MUX_S2, OUTPUT);
-    pinMode(MUX_S3, OUTPUT);
+Mux::Mux(
+    uint8_t s0,
+    uint8_t s1,
+    uint8_t s2,
+    uint8_t s3,
+    uint8_t sig
+)
+:
+_s0(s0),
+_s1(s1),
+_s2(s2),
+_s3(s3),
+_sig(sig)
+{
 
-    pinMode(MUX_SIG, INPUT);
 }
 
-void mux_set_channel(uint8_t ch) {
 
-    digitalWrite(MUX_S0, ch & 1);
-    digitalWrite(MUX_S1, (ch >> 1) & 1);
-    digitalWrite(MUX_S2, (ch >> 2) & 1);
-    digitalWrite(MUX_S3, (ch >> 3) & 1);
+void Mux::init()
+{
+    pinMode(_s0, OUTPUT);
+    pinMode(_s1, OUTPUT);
+    pinMode(_s2, OUTPUT);
+    pinMode(_s3, OUTPUT);
+
+    pinMode(_sig, INPUT);
 }
 
-uint8_t mux_read() {
 
+void Mux::setChannel(uint8_t ch)
+{
+    digitalWrite(_s0, ch & 1);
+    digitalWrite(_s1, (ch >> 1) & 1);
+    digitalWrite(_s2, (ch >> 2) & 1);
+    digitalWrite(_s3, (ch >> 3) & 1);
+}
+
+
+uint16_t Mux::read()
+{
     delayMicroseconds(10);
-    return analogRead(MUX_SIG);
+
+    return analogRead(_sig);
 }

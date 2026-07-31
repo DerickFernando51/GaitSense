@@ -1,6 +1,32 @@
 #pragma once
-#include <stdint.h>
 
-void mux_init();
-void mux_set_channel(uint8_t ch);
-uint8_t mux_read();
+#include <Arduino.h>
+
+class Mux
+{
+public:
+
+    Mux(
+        uint8_t s0,
+        uint8_t s1,
+        uint8_t s2,
+        uint8_t s3,
+        uint8_t sig
+    );
+
+
+    void init();
+
+    void setChannel(uint8_t channel);
+
+    uint16_t read();
+
+
+private:
+
+    uint8_t _s0;
+    uint8_t _s1;
+    uint8_t _s2;
+    uint8_t _s3;
+    uint8_t _sig;
+};

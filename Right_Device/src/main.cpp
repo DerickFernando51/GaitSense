@@ -17,6 +17,15 @@
 #include "rtos_tasks.h"
 
 
+Mux pressureMux(
+    MUX_S0,
+    MUX_S1,
+    MUX_S2,
+    MUX_S3,
+    MUX_SIG
+);
+
+
 void setup()
 {
     Serial.begin(115200);
@@ -25,7 +34,8 @@ void setup()
     analogReadResolution(8);
 
     /* Hardware and communication initialization */
-    mux_init();
+    pressureMux.init();
+    sampler_init(pressureMux);
     espnow_init();
     ble_init();
 

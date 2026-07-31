@@ -14,6 +14,15 @@
 #include "queues.h"
 #include "rtos_tasks.h"
 
+/* Create Mux object for pressure sensor */
+Mux pressureMux(
+    MUX_S0,
+    MUX_S1,
+    MUX_S2,
+    MUX_S3,
+    MUX_SIG
+);
+
 
 void setup()
 {
@@ -23,7 +32,8 @@ void setup()
     analogReadResolution(8);
 
     /* Hardware and communication initialization */
-    mux_init();
+    pressureMux.init();
+    sampler_init(pressureMux);
     espnow_init();
 
     /* FreeRTOS */
