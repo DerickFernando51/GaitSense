@@ -1,5 +1,5 @@
 # GaitSense
-(ESP32-C3, C/C++, ADC, BLE, ESP-NOW, AWS API Gateway, Lambda, Firebase, TypeScript, React)
+(ESP32-C3, C/C++, FreeRTOS, ADC, BLE, ESP-NOW, AWS API Gateway, Lambda, Firebase, TypeScript, React)
 
 - This wearable interfaces with an Fs-ins-16z insole pressure sensor array comprising of 16 FSR (Force Sensing Resistor) sensors.
 
@@ -9,7 +9,11 @@
   
 - The right wearable records the right foot data, combines it with the left foot data, and sends both to the mobile application over BLE.
 
-- A hardware timer running at 50 Hz triggers an interrupt to drive sensor sampling.
+- FreeRTOS is implemented to create a deterministic real-time architecture with separate tasks for sensor sampling and wireless data transmission.
+
+- A binary semaphore is used to synchronize the hardware timer interrupt with the high-priority sampling task, ensuring sensors are sampled at fixed intervals without polling.
+
+- Queues are used for safe data transfer between tasks, preventing race conditions and data corruption while allowing BLE/ESP-NOW communication to operate independently without affecting sampling timing.
 
 - The mobile app visualizes the force distribution across the foot using a heatmap, while the plot displays the total force summed over all 16 sensors per foot.
 
