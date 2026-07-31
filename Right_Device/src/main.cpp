@@ -9,45 +9,38 @@
 #include "espnow_comm.h"
 #include "ble_comm.h"
 
-#include "hw_timer.h"
 #include "control.h"
 
-ble_frame_t rightFrame;
-ble_frame_t leftFrame;
+#include "hw_timer.h"
 
-void setup() {
+#include "queues.h"
+#include "rtos_tasks.h"
 
+
+void setup()
+{
     Serial.begin(115200);
 
-    setCpuFrequencyMhz(41);
+    setCpuFrequencyMhz(80);
     analogReadResolution(8);
 
+    /* Hardware and communication initialization */
     mux_init();
-    sampler_init();
-
     espnow_init();
     ble_init();
 
+    /* RTOS*/
+    queues_init();
+    rtos_tasks_init();
+
+    /* Start timer */
     timer_init();
 
-    Serial.println("System ready");
+    Serial.println("Right ESP32-C3 ready");
 }
 
-void loop() {
 
-    if (!ble_is_streaming()) return;
-
-    if (timer_flag()) {
-
-        timer_clear();
-
-        sample_right_frame(&rightFrame, control_get_timestamp());
-        ble_send_frame(&rightFrame);
-
-        if (espnow_has_left()) {
-
-            espnow_get_left(&leftFrame);
-            ble_send_frame(&leftFrame);
-        }
-    }
+void loop()
+{
+    vTaskDelay(portMAX_DELAY);
 }
