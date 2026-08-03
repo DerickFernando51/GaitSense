@@ -15,7 +15,7 @@
 
 - Queues are used to safely move data between sensor sampling and wireless tranmission tasks.
 
-- Implemented a state machine to respond to wireless start/stop commands and handle hardware initialization, communication failures and queue overflow faults.
+- A state machine is implemented to respond to wireless start/stop commands and handle hardware initialization, communication failures and queue overflow faults.
 
 - The mobile app visualizes the force distribution across the foot using a heatmap, while the plot displays the total force summed over all 16 sensors per foot.
 
