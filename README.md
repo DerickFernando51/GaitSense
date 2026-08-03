@@ -9,11 +9,13 @@
   
 - The right wearable records the right foot data, combines it with the left foot data, and sends both to the mobile application over BLE.
 
-- FreeRTOS is implemented to create a deterministic real-time architecture with separate tasks for sensor sampling and wireless data transmission.
+- FreeRTOS is implemented to create a deterministic architecture by ensuring that wireless transmission does not block sensor sampling
 
-- A binary semaphore is used to synchronize the hardware timer interrupt with the high-priority sampling task, ensuring sensors are sampled at fixed intervals without polling.
+- A binary semaphore is used to synchronize the hardware timer interrupt with the high-priority sampling task.
 
-- Queues are used for safe data transfer between tasks, preventing race conditions and data corruption while allowing BLE/ESP-NOW communication to operate independently without affecting sampling timing.
+- Queues are used to safely move data between sensor sampling and wireless tranmission tasks.
+
+- Implemented a state machine to respond to wireless start/stop commands and handle hardware initialization, communication failures and queue overflow faults.
 
 - The mobile app visualizes the force distribution across the foot using a heatmap, while the plot displays the total force summed over all 16 sensors per foot.
 
