@@ -6,21 +6,31 @@
 #include "control.h"
 #include "espnow_comm.h"
 
+#include "system_state.h"
+
+
 static ble_frame_t rightFrame;
+
 
 static void SampleTask(void *pv)
 {
     for (;;)
     {
-        xSemaphoreTake(sampleSemaphore, portMAX_DELAY);
+        xSemaphoreTake(
+            sampleSemaphore,
+            portMAX_DELAY
+        );
 
-        if (!ble_is_streaming())
+
+        if(state_get() != SystemState::STREAMING)
             continue;
+
 
         sample_right_frame(
             &rightFrame,
             control_get_timestamp()
         );
+
 
         xQueueSend(
             bleQueue,
@@ -30,10 +40,12 @@ static void SampleTask(void *pv)
     }
 }
 
+
 static void BLETask(void *pv)
 {
     ble_frame_t right;
     ble_frame_t left;
+
 
     for (;;)
     {
@@ -43,14 +55,30 @@ static void BLETask(void *pv)
             portMAX_DELAY
         );
 
+
         ble_send_frame(&right);
 
-        if (xQueuePeek(leftFrameQueue, &left, 0))
+
+        if(xQueuePeek(leftFrameQueue, &left, 0))
         {
             ble_send_frame(&left);
         }
     }
 }
+
+void StateTask(void *pv)
+{
+    while(true)
+    {
+        if(state_get() == SystemState::ERROR)
+        {
+            Serial.println("System error");
+        }
+
+        vTaskDelay(pdMS_TO_TICKS(100));
+    }
+}
+
 
 void rtos_tasks_init()
 {
@@ -63,12 +91,23 @@ void rtos_tasks_init()
         NULL
     );
 
+
     xTaskCreate(
         BLETask,
         "BLE",
         4096,
         NULL,
         3,
+        NULL
+    );
+
+
+    xTaskCreate(
+        StateTask,
+        "State",
+        2048,
+        NULL,
+        1,
         NULL
     );
 }

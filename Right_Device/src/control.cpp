@@ -1,23 +1,31 @@
 #include "control.h"
+#include "system_state.h"
 #include <Arduino.h>
 
-static bool streaming = false;
 static uint32_t startTime = 0;
 
-void control_start() {
 
-    streaming = true;
+void control_start()
+{
     startTime = millis();
+
+    state_set(SystemState::STREAMING);
 }
 
-void control_stop() {
-    streaming = false;
+
+void control_stop()
+{
+    state_set(SystemState::IDLE);
 }
 
-bool control_is_streaming() {
-    return streaming;
+
+bool control_is_streaming()
+{
+    return state_get() == SystemState::STREAMING;
 }
 
-uint32_t control_get_timestamp() {
+
+uint32_t control_get_timestamp()
+{
     return millis() - startTime;
 }

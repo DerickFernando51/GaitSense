@@ -17,6 +17,8 @@
 #include "queues.h"
 #include "rtos_tasks.h"
 
+#include "system_state.h"
+
 
 Mux pressureMux(
     MUX_S0,
@@ -31,6 +33,7 @@ PressureSensor pressureSensor(pressureMux);
 
 void setup()
 {
+    state_set(SystemState::INIT);
     Serial.begin(115200);
 
     setCpuFrequencyMhz(80);
@@ -42,6 +45,8 @@ void setup()
     sampler_init(pressureSensor);
     espnow_init();
     ble_init();
+
+    state_set(SystemState::IDLE);
 
     /* RTOS*/
     queues_init();
