@@ -41,7 +41,13 @@ void setup()
 
     /* Hardware and communication initialization */
     pressureMux.init();
-    pressureSensor.init();
+
+    if(!pressureSensor.init())
+    {
+        state_set(SystemState::ERROR);
+        return;
+    }
+
     sampler_init(pressureSensor);
     espnow_init();
 

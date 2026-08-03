@@ -32,11 +32,14 @@ static void SampleTask(void *pv)
         );
 
 
-        xQueueSend(
+        if(xQueueSend(
             bleQueue,
             &rightFrame,
             0
-        );
+        ) != pdPASS)
+        {
+            state_set(SystemState::ERROR);
+        }
     }
 }
 

@@ -7,9 +7,9 @@ PressureSensor::PressureSensor(Mux &mux)
 }
 
 
-void PressureSensor::init()
+bool PressureSensor::init()
 {
-
+   return true;
 }
 
 

@@ -10,7 +10,7 @@ public:
 
     PressureSensor(Mux &mux);
 
-    void init() override;
+    bool init() override;
 
     uint16_t read(uint8_t channel) override;   
 

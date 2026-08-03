@@ -6,7 +6,7 @@ class ISensor
 {
 public:
 
-    virtual void init() = 0;
+    virtual bool init() = 0;
 
     virtual uint16_t read(uint8_t channel) = 0;
 
